@@ -115,7 +115,7 @@
             <button onclick="quiz('1953')">1953</button>
             <p id="quizMessage2"></p>
         </div>
-        <div id="phase6" class="phase hidden">
+                <div id="phase6" class="phase hidden">
             <p>Qu'est-ce que la lave ?</p>
             <button onclick="quiz('Roche en fusion')">Roche en fusion</button>
             <button onclick="quiz('Gaz chaud')">Gaz chaud</button>
@@ -133,56 +133,8 @@
             <button class="link-button" onclick="window.location.href='https://tiny.cc/SVT4F'">Retour à l'article</button>
         </div>
 
-        <!-- Code d'intégration de partage Canva -->
+        <!-- Boutons de partage sur les réseaux sociaux -->
         <div class="container">
             <a class="social-button" href="whatsapp://send?text=https://tiny.cc/SVT4F" target="_blank">Partager sur WhatsApp</a>
             <a class="social-button" href="sms:?&body=https://tiny.cc/SVT4F" target="_blank">Partager par SMS</a>
-            <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">Partager par Email</a>
-        </div>
-    </div>
-
-    <script>
-        function checkKit() {
-            const kitMessage = document.getElementById('kitMessage');
-            const hasEau = document.getElementById('eau').checked;
-            const hasNourriture = document.getElementById('nourriture').checked;
-            const hasMedicaments = document.getElementById('medicaments').checked;
-            const hasVetements = document.getElementById('vetements').checked;
-            const hasDocuments = document.getElementById('documents').checked;
-
-            if (hasEau && hasNourriture et hasMedicaments et hasVetements et hasDocuments) {
-                kitMessage.textContent = 'Vous avez correctement préparé votre kit !';
-                document.getElementById('phase1').classList.add('hidden');
-                document.getElementById('phase2').classList.remove('hidden');
-            } else {
-                kitMessage.textContent = 'Non, réessaie. Assurez-vous d\'inclure tous les éléments dans votre kit d\'urgence.';
-            }
-        }
-
-        function evacuer(response) {
-            const evacMessage = document.getElementById('evacMessage');
-            if (response === 'oui') {
-                evacMessage.textContent = 'Vous avez évacué en sécurité';
-                document.getElementById('phase2').classList.add('hidden');
-                document.getElementById('phase3').classList.remove('hidden');
-            } else {
-                evacMessage.textContent = 'Non, réessaie. Vous êtes en danger, évacuez immédiatement !';
-            }
-        }
-
-        function nettoyer(response) {
-            const cleanMessage = document.getElementById('cleanMessage');
-            if (response === 'avec un masque') {
-                cleanMessage.textContent = 'Bonne réponse, vous êtes en sécurité';
-                document.getElementById('phase3').classList.add('hidden');
-                document.getElementById('phase4').classList.remove('hidden');
-            } else {
-                cleanMessage.textContent = 'Non, réessaie. Portez un masque pour votre sécurité.';
-            }
-        }
-
-        function quiz(answer) {
-            if (document.getElementById('phase4').classList.contains('hidden') === false) {
-                const quizMessage1 = document.getElementById('quizMessage1');
-                if (answer === 'Kilauea') {
-[_{{{CITATION{{{_1{](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md)
+            <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%

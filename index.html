@@ -66,8 +66,20 @@
             text-decoration: none;
             display: inline-block;
         }
+        .social-button img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
         .social-button:hover {
             background-color: #45a049;
+        }
+        .link-button img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
         }
     </style>
 </head>
@@ -130,14 +142,22 @@
         </div>
         
         <div class="container">
-            <button class="link-button" onclick="window.location.href='https://tiny.cc/SVT4F'">Retour à l'article</button>
+            <button class="link-button" onclick="window.location.href='https://tiny.cc/SVT4F'">
+                <img src="https://img.icons8.com/ios-filled/50/000000/article.png" alt="article-logo"> Retour à l'article
+            </button>
         </div>
 
-        <!-- Boutons de partage -->
+        <!-- Boutons de partage avec logos -->
         <div class="container">
-            <a class="social-button" href="whatsapp://send?text=https://tiny.cc/SVT4F" target="_blank">Partager sur WhatsApp</a>
-            <a class="social-button" href="sms:?&body=https://tiny.cc/SVT4F" target="_blank">Partager par SMS</a>
-            <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">Partager par Email</a>
+            <a class="social-button" href="whatsapp://send?text=https://tiny.cc/SVT4F" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="whatsapp-logo"> Partager sur WhatsApp
+            </a>
+            <a class="social-button" href="sms:?&body=https://tiny.cc/SVT4F" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/000000/sms.png" alt="sms-logo"> Partager par SMS
+            </a>
+            <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="email-logo"> Partager par Email
+            </a>
         </div>
     </div>
     <script>

@@ -114,7 +114,7 @@
             document.getElementById('phase1').classList.add('hidden');
             document.getElementById('phase2').classList.remove('hidden');
         } else {
-            kitMessage.textContent = 'Assurez-vous d\'inclure tous les éléments dans votre kit d\'urgence.';
+            kitMessage.textContent = 'Non, réessaie. Assurez-vous d\'inclure tous les éléments dans votre kit d\'urgence.';
         }
     }
 
@@ -125,7 +125,7 @@
             document.getElementById('phase2').classList.add('hidden');
             document.getElementById('phase3').classList.remove('hidden');
         } else {
-            evacMessage.textContent = 'Vous êtes en danger, évacuez immédiatement !';
+            evacMessage.textContent = 'Non, réessaie. Vous êtes en danger, évacuez immédiatement !';
         }
     }
 
@@ -136,7 +136,7 @@
             document.getElementById('phase3').classList.add('hidden');
             document.getElementById('phase4').classList.remove('hidden');
         } else {
-            cleanMessage.textContent = 'Mauvaise réponse, portez un masque pour votre sécurité';
+            cleanMessage.textContent = 'Non, réessaie. Portez un masque pour votre sécurité.';
         }
     }
 
@@ -146,7 +146,7 @@
             if (answer === 'Kilauea') {
                 quizMessage1.textContent = 'Bonne réponse !';
             } else {
-                quizMessage1.textContent = 'Mauvaise réponse, le bon choix était Kilauea.';
+                quizMessage1.textContent = 'Non, réessaie. Le bon choix était Kilauea.';
             }
             document.getElementById('phase4').classList.add('hidden');
             document.getElementById('phase5').classList.remove('hidden');
@@ -155,7 +155,7 @@
             if (answer === '1883') {
                 quizMessage2.textContent = 'Bonne réponse !';
             } else {
-                quizMessage2.textContent = 'Mauvaise réponse, le bon choix était 1883.';
+                quizMessage2.textContent = 'Non, réessaie. Le bon choix était 1883.';
             }
             document.getElementById('phase5').classList.add('hidden');
             document.getElementById('phase6').classList.remove('hidden');
@@ -164,7 +164,7 @@
             if (answer === 'Roche en fusion') {
                 quizMessage3.textContent = 'Bonne réponse !';
             } else {
-                quizMessage3.textContent = 'Mauvaise réponse, le bon choix était Roche en fusion.';
+                quizMessage3.textContent = 'Non, réessaie. Le bon choix était Roche en fusion.';
             }
             document.getElementById('phase6').classList.add('hidden');
             document.getElementById('phase7').classList.remove('hidden');

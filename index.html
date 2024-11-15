@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survivre à une éruption volcanique</title>
+    <title>Volcans - Une affaire de prévention</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -41,11 +41,26 @@
         .hidden { 
             display: none; 
         }
+        .link-button {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .link-button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
+    <h1>Volcans, Une affaire de prévention</h1>
+
     <div class="container">
-        <h1>Survivre à une éruption volcanique</h1>
         <div id="phase1" class="phase">
             <h2>Phase 1 : Préparation</h2>
             <p>Constituer un kit d'urgence. Quels objets voulez-vous inclure ?</p>
@@ -100,78 +115,83 @@
             <p>Merci d'avoir joué. N'oubliez pas de toujours être prêt et informé.</p>
         </div>
     </div>
+[_{{{CITATION{{{_1{](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md)
+            <div class="container">
+            <button class="link-button" onclick="window.location.href='https://www.canva.com/design/DAGWYomZ7-E/4VTIgz8_W66i44jAmZUd2g/view?utm_content=DAGWYomZ7-E&utm_campaign=designshare&utm_medium=embeds&utm_source=link'">Retour à l'article</button>
+            <button class="link-button" onclick="window.open('https://www.canva.com/design/DAGWYomZ7-E/4VTIgz8_W66i44jAmZUd2g/view?utm_content=DAGWYomZ7-E&utm_campaign=designshare&utm_medium=embeds&utm_source=link', '_blank')">Partager l'article</button>
+        </div>
+    </div>
+
     <script>
-    function checkKit() {
-        const kitMessage = document.getElementById('kitMessage');
-        const hasEau = document.getElementById('eau').checked;
-        const hasNourriture = document.getElementById('nourriture').checked;
-        const hasMedicaments = document.getElementById('medicaments').checked;
-        const hasVetements = document.getElementById('vetements').checked;
-        const hasDocuments = document.getElementById('documents').checked;
+        function checkKit() {
+            const kitMessage = document.getElementById('kitMessage');
+            const hasEau = document.getElementById('eau').checked;
+            const hasNourriture = document.getElementById('nourriture').checked;
+            const hasMedicaments = document.getElementById('medicaments').checked;
+            const hasVetements = document.getElementById('vetements').checked;
+            const hasDocuments = document.getElementById('documents').checked;
 
-        if (hasEau && hasNourriture && hasMedicaments && hasVetements && hasDocuments) {
-            kitMessage.textContent = 'Vous avez correctement préparé votre kit !';
-            document.getElementById('phase1').classList.add('hidden');
-            document.getElementById('phase2').classList.remove('hidden');
-        } else {
-            kitMessage.textContent = 'Non, réessaie. Assurez-vous d\'inclure tous les éléments dans votre kit d\'urgence.';
-        }
-    }
-
-    function evacuer(response) {
-        const evacMessage = document.getElementById('evacMessage');
-        if (response === 'oui') {
-            evacMessage.textContent = 'Vous avez évacué en sécurité';
-            document.getElementById('phase2').classList.add('hidden');
-            document.getElementById('phase3').classList.remove('hidden');
-        } else {
-            evacMessage.textContent = 'Non, réessaie. Vous êtes en danger, évacuez immédiatement !';
-        }
-    }
-
-    function nettoyer(response) {
-        const cleanMessage = document.getElementById('cleanMessage');
-        if (response === 'avec un masque') {
-            cleanMessage.textContent = 'Bonne réponse, vous êtes en sécurité';
-            document.getElementById('phase3').classList.add('hidden');
-            document.getElementById('phase4').classList.remove('hidden');
-        } else {
-            cleanMessage.textContent = 'Non, réessaie. Portez un masque pour votre sécurité.';
-        }
-    }
-
-    function quiz(answer) {
-        if (document.getElementById('phase4').classList.contains('hidden') === false) {
-            const quizMessage1 = document.getElementById('quizMessage1');
-            if (answer === 'Kilauea') {
-                quizMessage1.textContent = 'Bonne réponse !';
-                document.getElementById('phase4').classList.add('hidden');
-                document.getElementById('phase5').classList.remove('hidden');
+            if (hasEau && hasNourriture && hasMedicaments && hasVetements && hasDocuments) {
+                kitMessage.textContent = 'Vous avez correctement préparé votre kit !';
+                document.getElementById('phase1').classList.add('hidden');
+                document.getElementById('phase2').classList.remove('hidden');
             } else {
-                quizMessage1.textContent = 'Non, réessaie. Le bon choix était Kilauea.';
-            }
-        } else if (document.getElementById('phase5').classList.contains('hidden') === false) {
-            const quizMessage2 = document.getElementById('quizMessage2');
-            if (answer === '1883') {
-                quizMessage2.textContent = 'Bonne réponse !';
-                document.getElementById('phase5').classList.add('hidden');
-                document.getElementById('phase6').classList.remove('hidden');
-            } else {
-                quizMessage2.textContent = 'Non, réessaie. Le bon choix était 1883.';
-            }
-        } else if (document.getElementById('phase6').classList.contains('hidden') === false) {
-            const quizMessage3 = document.getElementById('quizMessage3');
-            if (answer === 'Roche en fusion') {
-                quizMessage3.textContent = 'Bonne réponse !';
-                document.getElementById('phase6').classList.add('hidden');
-                document.getElementById('phase7').classList.remove('hidden');
-            } else {
-                quizMessage3.textContent = 'Non, réessaie. Le bon choix était Roche en fusion.';
+                kitMessage.textContent = 'Non, réessaie. Assurez-vous d\'inclure tous les éléments dans votre kit d\'urgence.';
             }
         }
-    }
-</script>
 
+        function evacuer(response) {
+            const evacMessage = document.getElementById('evacMessage');
+            if (response === 'oui') {
+                evacMessage.textContent = 'Vous avez évacué en sécurité';
+                document.getElementById('phase2').classList.add('hidden');
+                document.getElementById('phase3').classList.remove('hidden');
+            } else {
+                evacMessage.textContent = 'Non, réessaie. Vous êtes en danger, évacuez immédiatement !';
+            }
+        }
+
+        function nettoyer(response) {
+            const cleanMessage = document.getElementById('cleanMessage');
+            if (response === 'avec un masque') {
+                cleanMessage.textContent = 'Bonne réponse, vous êtes en sécurité';
+                document.getElementById('phase3').classList.add('hidden');
+                document.getElementById('phase4').classList.remove('hidden');
+            } else {
+                cleanMessage.textContent = 'Non, réessaie. Portez un masque pour votre sécurité.';
+            }
+        }
+
+        function quiz(answer) {
+            if (document.getElementById('phase4').classList.contains('hidden') === false) {
+                const quizMessage1 = document.getElementById('quizMessage1');
+                if (answer === 'Kilauea') {
+                    quizMessage1.textContent = 'Bonne réponse !';
+                    document.getElementById('phase4').classList.add('hidden');
+                    document.getElementById('phase5').classList.remove('hidden');
+                } else {
+                    quizMessage1.textContent = 'Non, réessaie. Le bon choix était Kilauea.';
+                }
+            } else if (document.getElementById('phase5').classList.contains('hidden') === false) {
+                const quizMessage2 = document.getElementById('quizMessage2');
+                if (answer === '1883') {
+                    quizMessage2.textContent = 'Bonne réponse !';
+                    document.getElementById('phase5').classList.add('hidden');
+                    document.getElementById('phase6').classList.remove('hidden');
+                } else {
+                    quizMessage2.textContent = 'Non, réessaie. Le bon choix était 1883.';
+                }
+            } else if (document.getElementById('phase6').classList.contains('hidden') === false) {
+                const quizMessage3 = document.getElementById('quizMessage3');
+                if (answer === 'Roche en fusion') {
+                    quizMessage3.textContent = 'Bonne réponse !';
+                    document.getElementById('phase6').classList.add('hidden');
+                    document.getElementById('phase7').classList.remove('hidden');
+                } else {
+                    quizMessage3.textContent = 'Non, réessaie. Le bon choix était Roche en fusion.';
+                }
+            }
+        }
+    </script>
 </body>
 </html>
-

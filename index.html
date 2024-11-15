@@ -100,7 +100,7 @@
             <p>Merci d'avoir joué. N'oubliez pas de toujours être prêt et informé.</p>
         </div>
     </div>
-    <script>
+<script>
     function checkKit() {
         const kitMessage = document.getElementById('kitMessage');
         const hasEau = document.getElementById('eau').checked;
@@ -109,7 +109,7 @@
         const hasVetements = document.getElementById('vetements').checked;
         const hasDocuments = document.getElementById('documents').checked;
 
-        if (hasEau && hasNourriture && hasMedicaments && hasVetements && hasDocuments) {
+        if (hasEau && hasNourriture && hasMedicaments && hasVetements et hasDocuments) {
             kitMessage.textContent = 'Vous avez correctement préparé votre kit !';
             document.getElementById('phase1').classList.add('hidden');
             document.getElementById('phase2').classList.remove('hidden');

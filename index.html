@@ -132,13 +132,14 @@
         <div class="container">
             <button class="link-button" onclick="window.location.href='https://tiny.cc/SVT4F'">Retour à l'article</button>
         </div>
+
+        <!-- Boutons de partage -->
         <div class="container">
             <a class="social-button" href="whatsapp://send?text=https://tiny.cc/SVT4F" target="_blank">Partager sur WhatsApp</a>
             <a class="social-button" href="sms:?&body=https://tiny.cc/SVT4F" target="_blank">Partager par SMS</a>
             <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">Partager par Email</a>
         </div>
     </div>
-
     <script>
         function checkKit() {
             const kitMessage = document.getElementById('kitMessage');
@@ -180,5 +181,35 @@
         }
 
         function quiz(answer) {
-            if (document.getElementById('phase4').classList.contains('hidden') === false) {
+            if (!document.getElementById('phase4').classList.contains('hidden')) {
                 const quizMessage1 = document.getElementById('quizMessage1');
+                if (answer === 'Kilauea') {
+                    quizMessage1.textContent = 'Bonne réponse !';
+                    document.getElementById('phase4').classList.add('hidden');
+                    document.getElementById('phase5').classList.remove('hidden');
+                } else {
+                    quizMessage1.textContent = 'Non, réessaie. Le bon choix était Kilauea.';
+                }
+            } else if (!document.getElementById('phase5').classList.contains('hidden')) {
+                const quizMessage2 = document.getElementById('quizMessage2');
+                if (answer === '1883') {
+                    quizMessage2.textContent = 'Bonne réponse !';
+                    document.getElementById('phase5').classList.add('hidden');
+                    document.getElementById('phase6').classList.remove('hidden');
+                } else {
+                    quizMessage2.textContent = 'Non, réessaie. Le bon choix était 1883.';
+                }
+            } else if (!document.getElementById('phase6').classList.contains('hidden')) {
+                const quizMessage3 = document.getElementById('quizMessage3');
+                if (answer === 'Roche en fusion') {
+                    quizMessage3.textContent = 'Bonne réponse !';
+                    document.getElementById('phase6').classList.add('hidden');
+                    document.getElementById('phase7').classList.remove('hidden');
+                } else {
+                    quizMessage3.textContent = 'Non, réessaie. Le bon choix était Roche en fusion.';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

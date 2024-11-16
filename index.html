@@ -6,7 +6,7 @@
     <title>Volcans - Une affaire de prévention</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
             text-align: center;
@@ -15,57 +15,56 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: #ffffff;
+            background: #fff;
             padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            font-size: 2.8em;
+            font-size: 2.5em;
             color: #e63946;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #1d3557;
-            margin-bottom: 10px;
         }
         .phase {
             margin: 20px 0;
-            padding: 20px;
-            background-color: #f1faee;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
         button {
             margin: 10px;
-            padding: 12px 25px;
+            padding: 10px 20px;
             background-color: #e63946;
-            color: #fff;
+            color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
         }
         button:hover {
             background-color: #d62828;
-            transform: translateY(-2px);
         }
         .hidden {
             display: none;
         }
-        .social-button {
-            margin: 5px;
-            padding: 10px 15px;
-            background-color: #f1faee;
-            color: #1d3557;
-            border: 2px solid #1d3557;
-            border-radius: 8px;
+        .link-button {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            transition: background-color 0.3s;
+        }
+        .link-button:hover {
+            background-color: #ffffff;
+        }
+        .social-button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #ffffff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
         }
         .social-button img {
             width: 20px;
@@ -74,22 +73,13 @@
             margin-right: 8px;
         }
         .social-button:hover {
-            background-color: #a8dadc;
+            background-color: #ffffff;
         }
-        .link-button {
-            margin: 20px;
-            padding: 10px 20px;
-            background-color: #1d3557;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        .link-button:hover {
-            background-color: #457b9d;
-            transform: translateY(-2px);
+        .link-button img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
         }
     </style>
 </head>
@@ -108,18 +98,68 @@
             <button onclick="checkKit()">Soumettre</button>
             <p id="kitMessage"></p>
         </div>
-        <!-- Autres phases -->
-        <!-- Boutons de partage et de retour -->
+        
+        <div id="phase2" class="phase hidden">
+            <h2>Phase 2 : Pendant l'éruption</h2>
+            <p>Voulez-vous évacuer maintenant ?</p>
+            <button onclick="evacuer('oui')">Oui</button>
+            <button onclick="evacuer('non')">Non</button>
+            <p id="evacMessage"></p>
+        </div>
+
+        <div id="phase3" class="phase hidden">
+            <h2>Phase 3 : Après l'éruption</h2>
+            <p>Comment allez-vous nettoyer les cendres ?</p>
+            <button onclick="nettoyer('avec un masque')">Avec un masque</button>
+            <button onclick="nettoyer('sans masque')">Sans masque</button>
+            <p id="cleanMessage"></p>
+        </div>
+
+        <div id="phase4" class="phase hidden">
+            <h2>Phase 4 : Quiz sur les éruptions volcaniques</h2>
+            <p>Quel est le volcan le plus actif du monde ?</p>
+            <button onclick="quiz('Kilauea')">Kilauea</button>
+            <button onclick="quiz('Etna')">Etna</button>
+            <button onclick="quiz('Vésuve')">Vésuve</button>
+            <p id="quizMessage1"></p>
+        </div>
+
+        <div id="phase5" class="phase hidden">
+            <p>En quelle année le volcan Krakatoa a-t-il connu sa célèbre éruption ?</p>
+            <button onclick="quiz('1883')">1883</button>
+            <button onclick="quiz('1923')">1923</button>
+            <button onclick="quiz('1953')">1953</button>
+            <p id="quizMessage2"></p>
+        </div>
+
+        <div id="phase6" class="phase hidden">
+            <p>Qu'est-ce que la lave ?</p>
+            <button onclick="quiz('Roche en fusion')">Roche en fusion</button>
+            <button onclick="quiz('Gaz chaud')">Gaz chaud</button>
+            <button onclick="quiz('Cendres volcaniques')">Cendres volcaniques</button>
+            <p id="quizMessage3"></p>
+        </div>
+
+        <div id="phase7" class="phase hidden">
+            <h2>Phase Finale : Félicitations</h2>
+            <p>Félicitations, vous avez survécu à l'éruption volcanique !</p>
+            <p>Vous avez pris les bonnes décisions et vous avez appris à vous préparer et à réagir correctement.</p>
+            <p>Merci d'avoir joué. N'oubliez pas de toujours être prêt et informé.</p>
+        </div>
+
+        <!-- Boutons de partage avec logos -->
         <a class="social-button" href="whatsapp://send?text=https://tiny.cc/SVT4F" target="_blank">
-            <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="whatsapp-logo">Partager
+            <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="whatsapp-logo">
         </a>
         <a class="social-button" href="sms:?&body=https://tiny.cc/SVT4F" target="_blank">
-            <img src="https://img.icons8.com/ios-filled/50/000000/sms.png" alt="sms-logo">SMS
+            <img src="https://img.icons8.com/ios-filled/50/000000/sms.png" alt="sms-logo">‎
         </a>
         <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">
-            <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="email-logo">Email
+            <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="email-logo">
         </a>
-        <a class="link-button" href="https://tiny.cc/SVT4F">Retour à l'article</a>
+        <a class="social-button">
+            <button class="social-button" onclick="window.location.href='https://tiny.cc/SVT4F'"> Retour à l'article </button>
+        </a>
     </div>
 
     <script>
@@ -137,6 +177,59 @@
                 document.getElementById('phase2').classList.remove('hidden');
             } else {
                 kitMessage.textContent = 'Non, réessaie. Assurez-vous d\'inclure tous les éléments dans votre kit d\'urgence.';
+            }
+        }
+
+        function evacuer(response) {
+            const evacMessage = document.getElementById('evacMessage');
+            if (response === 'oui') {
+                evacMessage.textContent = 'Vous avez évacué en sécurité';
+                document.getElementById('phase2').classList.add('hidden');
+                document.getElementById('phase3').classList.remove('hidden');
+            } else {
+                evacMessage.textContent = 'Non, réessaie. Vous êtes en danger, évacuez immédiatement !';
+            }
+        }
+
+        function nettoyer(response) {
+            const cleanMessage = document.getElementById('cleanMessage');
+            if (response === 'avec un masque') {
+                cleanMessage.textContent = 'Bonne réponse, vous êtes en sécurité';
+                document.getElementById('phase3').classList.add('hidden');
+                document.getElementById('phase4').classList.remove('hidden');
+            } else {
+                cleanMessage.textContent = 'Non, réessaie. Portez un masque pour votre sécurité.';
+            }
+        }
+
+        function quiz(answer) {
+            if (!document.getElementById('phase4').classList.contains('hidden')) {
+                const quizMessage1 = document.getElementById('quizMessage1');
+                if (answer === 'Kilauea') {
+                    quizMessage1.textContent = 'Bonne réponse !';
+                    document.getElementById('phase4').classList.add('hidden');
+                    document.getElementById('phase5').classList.remove('hidden');
+                } else {
+                    quizMessage1.textContent = 'Non, réessaie. Le bon choix était Kilauea.';
+                }
+            } else if (!document.getElementById('phase5').classList.contains('hidden')) {
+                const quizMessage2 = document.getElementById('quizMessage2');
+                if (answer === '1883') {
+                    quizMessage2.textContent = 'Bonne réponse !';
+                    document.getElementById('phase5').classList.add('hidden');
+                    document.getElementById('phase6').classList.remove('hidden');
+                } else {
+                    quizMessage2.textContent = 'Non, réessaie. Le bon choix était 1883.';
+                }
+            } else if (!document.getElementById('phase6').classList.contains('hidden')) {
+                const quizMessage3 = document.getElementById('quizMessage3');
+                if (answer === 'Roche en fusion') {
+                    quizMessage3.textContent = 'Bonne réponse !';
+                    document.getElementById('phase6').classList.add('hidden');
+                    document.getElementById('phase7').classList.remove('hidden');
+                } else {
+                    quizMessage3.textContent = 'Non, réessaie. Le bon choix était Roche en fusion.';
+                }
             }
         }
     </script>

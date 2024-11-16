@@ -6,8 +6,8 @@
     <title>Volcans - Une affaire de prévention</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #ececec; /* beige */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
             color: #333;
             text-align: center;
             padding: 20px;
@@ -15,51 +15,57 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: #ffffff; /* blanc */
+            background: #ffffff;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
         }
         h1 {
-            font-size: 2.5em;
-            color: #800000; /* brun rougeâtre */
+            font-size: 2.8em;
+            color: #e63946;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
         h2 {
-            color: #4a4a4a; /* gris foncé */
+            color: #1d3557;
+            margin-bottom: 10px;
         }
         .phase {
             margin: 20px 0;
+            padding: 20px;
+            background-color: #f1faee;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
         button {
             margin: 10px;
-            padding: 10px 20px;
-            background-color: #4a4a4a; /* gris foncé */
-            color: white;
+            padding: 12px 25px;
+            background-color: #e63946;
+            color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
         }
         button:hover {
-            background-color: #333333; /* noir */
+            background-color: #d62828;
+            transform: translateY(-2px);
         }
         .hidden {
             display: none;
         }
-        .social-buttons {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
         .social-button {
             margin: 5px;
             padding: 10px 15px;
-            background-color: #ececec; /* beige */
-            color: #4a4a4a; /* gris foncé */
-            border: 1px solid #4a4a4a; /* gris foncé */
-            border-radius: 5px;
+            background-color: #f1faee;
+            color: #1d3557;
+            border: 2px solid #1d3557;
+            border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
+            transition: background-color 0.3s;
         }
         .social-button img {
             width: 20px;
@@ -68,27 +74,22 @@
             margin-right: 8px;
         }
         .social-button:hover {
-            background-color: #dcdcdc; /* beige plus foncé */
+            background-color: #a8dadc;
         }
-        .back-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 10px;
-            background-color: #ececec; /* beige */
-            color: #4a4a4a; /* gris foncé */
-            border: 1px solid #4a4a4a; /* gris foncé */
-            border-radius: 5px;
+        .link-button {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #1d3557;
+            color: white;
+            border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.2s;
         }
-        .back-button img {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
-        }
-        .back-button:hover {
-            background-color: #dcdcdc; /* beige plus foncé */
+        .link-button:hover {
+            background-color: #457b9d;
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -99,74 +100,28 @@
         <div id="phase1" class="phase">
             <h2>Phase 1 : Préparation</h2>
             <p>Constituer un kit d'urgence. Quels objets voulez-vous inclure ?</p>
-            <input type="checkbox" id="eau" name="kit" value="eau"> Eau<br/>
-            <input type="checkbox" id="nourriture" name="kit" value="nourriture"> Nourriture<br/>
-            <input type="checkbox" id="medicaments" name="kit" value="medicaments"> Médicaments<br/>
-            <input type="checkbox" id="vetements" name="kit" value="vetements"> Vêtements<br/>
-            <input type="checkbox" id="documents" name="kit" value="documents"> Documents<br/>
+            <input type="checkbox" id="eau" name="kit" value="eau"> Eau<br>
+            <input type="checkbox" id="nourriture" name="kit" value="nourriture"> Nourriture<br>
+            <input type="checkbox" id="medicaments" name="kit" value="medicaments"> Médicaments<br>
+            <input type="checkbox" id="vetements" name="kit" value="vetements"> Vêtements<br>
+            <input type="checkbox" id="documents" name="kit" value="documents"> Documents<br>
             <button onclick="checkKit()">Soumettre</button>
             <p id="kitMessage"></p>
         </div>
-        <div id="phase2" class="phase hidden">
-            <h2>Phase 2 : Pendant l'éruption</h2>
-            <p>Voulez-vous évacuer maintenant ?</p>
-            <button onclick="evacuer('oui')">Oui</button>
-            <button onclick="evacuer('non')">Non</button>
-            <p id="evacMessage"></p>
-        </div>
-        <div id="phase3" class="phase hidden">
-            <h2>Phase 3 : Après l'éruption</h2>
-            <p>Comment allez-vous nettoyer les cendres ?</p>
-            <button onclick="nettoyer('avec un masque')">Avec un masque</button>
-            <button onclick="nettoyer('sans masque')">Sans masque</button>
-            <p id="cleanMessage"></p>
-        </div>
-        <div id="phase4" class="phase hidden">
-            <h2>Phase 4 : Quiz sur les éruptions volcaniques</h2>
-            <p>Quel est le volcan le plus actif du monde ?</p>
-            <button onclick="quiz('Kilauea', 'quizMessage1')">Kilauea</button>
-            <button onclick="quiz('Etna', 'quizMessage1')">Etna</button>
-            <button onclick="quiz('Vésuve', 'quizMessage1')">Vésuve</button>
-            <p id="quizMessage1"></p>
-        </div>
-        <div id="phase5" class="phase hidden">
-            <p>En quelle année le volcan Krakatoa a-t-il connu sa célèbre éruption ?</p>
-            <button onclick="quiz('1883', 'quizMessage2')">1883</button>
-            <button onclick="quiz('1923', 'quizMessage2')">1923</button>
-            <button onclick="quiz('1953', 'quizMessage2')">1953</button>
-            <p id="quizMessage2"></p>
-        </div>
-        <div id="phase6" class="phase hidden">
-            <p>Qu'est-ce que la lave ?</p>
-            <button onclick="quiz('Roche en fusion', 'quizMessage3')">Roche en fusion</button>
-            <button onclick="quiz('Gaz chaud', 'quizMessage3')">Gaz chaud</button>
-            <button onclick="quiz('Cendres volcaniques', 'quizMessage3')">Cendres volcaniques</button>
-            <p id="quizMessage3"></p>
-        </div>
-        <div id="phase7" class="phase hidden">
-            <h2>Phase Finale : Félicitations</h2>
-            <p>Félicitations, vous avez survécu à l'éruption volcanique !</p>
-            <p>Vous avez pris les bonnes décisions et vous avez appris à vous préparer et à réagir correctement.</p>
-            <p>Merci d'avoir joué. N'oubliez pas de toujours être prêt et informé.</p>
-        </div>
-
-        <!-- Boutons de partage avec logos -->
-        <div class="social-buttons">
-            <a class="social-button" href="whatsapp://send?text=https://tiny.cc/SVT4F" target="_blank">
-                <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="whatsapp-logo">
-            </a>
-            <a class="social-button" href="sms:?&body=https://tiny.cc/SVT4F" target="_blank">
-                <img src="https://img.icons8.com/ios-filled/50/000000/sms.png" alt="sms-logo">
-            </a>
-            <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">
-                <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="email-logo">
-            </a>
-        </div>
-        <a class="back-button" href="https://tiny.cc/SVT4F">
-            <img src="https://img.icons8.com/ios-filled/50/000000/left.png" alt="back-arrow">
+        <!-- Autres phases -->
+        <!-- Boutons de partage et de retour -->
+        <a class="social-button" href="whatsapp://send?text=https://tiny.cc/SVT4F" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="whatsapp-logo">Partager
         </a>
+        <a class="social-button" href="sms:?&body=https://tiny.cc/SVT4F" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/000000/sms.png" alt="sms-logo">SMS
+        </a>
+        <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="email-logo">Email
+        </a>
+        <a class="link-button" href="https://tiny.cc/SVT4F">Retour à l'article</a>
     </div>
-    
+
     <script>
         function checkKit() {
             const kitMessage = document.getElementById('kitMessage');
@@ -181,28 +136,7 @@
                 document.getElementById('phase1').classList.add('hidden');
                 document.getElementById('phase2').classList.remove('hidden');
             } else {
-                kitMessage.textContent = 'Assurez-vous d\'inclure tous les éléments requis.';
-            }
-        }
-
-        function quiz(reponse, messageId) {
-            const quizMessage = document.getElementById(messageId);
-            quizMessage.textContent = ''; // Réinitialiser le message
-
-            if (reponse === 'Kilauea' && messageId === 'quizMessage1') {
-                quizMessage.textContent = 'Correct ! Kilauea est bien le volcan le plus actif du monde.';
-                document.getElementById('phase4').classList.add('hidden');
-                document.getElementById('phase5').classList.remove('hidden');
-            } else if (reponse === '1883' && messageId === 'quizMessage2') {
-                quizMessage.textContent = 'Exact ! Le Krakatoa a connu une éruption célèbre en 1883.';
-                document.getElementById('phase5').classList.add('hidden');
-                document.getElementById('phase6').classList.remove('hidden');
-            } else if (reponse === 'Roche en fusion' && messageId === 'quizMessage3') {
-                quizMessage.textContent = 'Bravo ! La lave est effectivement de la roche en fusion.';
-                document.getElementById('phase6').classList.add('hidden');
-                document.getElementById('phase7').classList.remove('hidden');
-            } else {
-                quizMessage.textContent = 'Non, ce n’est pas la bonne réponse. Essayez encore.';
+                kitMessage.textContent = 'Non, réessaie. Assurez-vous d\'inclure tous les éléments dans votre kit d\'urgence.';
             }
         }
     </script>

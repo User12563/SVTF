@@ -124,23 +124,23 @@
         <div id="phase4" class="phase hidden">
             <h2>Phase 4 : Quiz sur les éruptions volcaniques</h2>
             <p>Quel est le volcan le plus actif du monde ?</p>
-            <button onclick="quiz('Kilauea')">Kilauea</button>
-            <button onclick="quiz('Etna')">Etna</button>
-            <button onclick="quiz('Vésuve')">Vésuve</button>
+            <button onclick="quiz('Kilauea', 'quizMessage1')">Kilauea</button>
+            <button onclick="quiz('Etna', 'quizMessage1')">Etna</button>
+            <button onclick="quiz('Vésuve', 'quizMessage1')">Vésuve</button>
             <p id="quizMessage1"></p>
         </div>
         <div id="phase5" class="phase hidden">
             <p>En quelle année le volcan Krakatoa a-t-il connu sa célèbre éruption ?</p>
-            <button onclick="quiz('1883')">1883</button>
-            <button onclick="quiz('1923')">1923</button>
-            <button onclick="quiz('1953')">1953</button>
+            <button onclick="quiz('1883', 'quizMessage2')">1883</button>
+            <button onclick="quiz('1923', 'quizMessage2')">1923</button>
+            <button onclick="quiz('1953', 'quizMessage2')">1953</button>
             <p id="quizMessage2"></p>
         </div>
         <div id="phase6" class="phase hidden">
             <p>Qu'est-ce que la lave ?</p>
-            <button onclick="quiz('Roche en fusion')">Roche en fusion</button>
-            <button onclick="quiz('Gaz chaud')">Gaz chaud</button>
-            <button onclick="quiz('Cendres volcaniques')">Cendres volcaniques</button>
+            <button onclick="quiz('Roche en fusion', 'quizMessage3')">Roche en fusion</button>
+            <button onclick="quiz('Gaz chaud', 'quizMessage3')">Gaz chaud</button>
+            <button onclick="quiz('Cendres volcaniques', 'quizMessage3')">Cendres volcaniques</button>
             <p id="quizMessage3"></p>
         </div>
         <div id="phase7" class="phase hidden">
@@ -149,6 +149,22 @@
             <p>Vous avez pris les bonnes décisions et vous avez appris à vous préparer et à réagir correctement.</p>
             <p>Merci d'avoir joué. N'oubliez pas de toujours être prêt et informé.</p>
         </div>
+
+        <!-- Boutons de partage avec logos -->
+        <div class="social-buttons">
+            <a class="social-button" href="whatsapp://send?text=https://tiny.cc/SVT4F" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="whatsapp-logo">
+            </a>
+            <a class="social-button" href="sms:?&body=https://tiny.cc/SVT4F" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/000000/sms.png" alt="sms-logo">
+            </a>
+            <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="email-logo">
+            </a>
+        </div>
+        <a class="back-button" href="https://tiny.cc/SVT4F">
+            <img src="https://img.icons8.com/ios-filled/50/000000/left.png" alt="back-arrow">
+        </a>
     </div>
     
     <script>
@@ -165,62 +181,30 @@
                 document.getElementById('phase1').classList.add('hidden');
                 document.getElementById('phase2').classList.remove('hidden');
             } else {
-                kitMessage.textContent = 'Assurez-vous de cocher tous les éléments du kit.';
+                kitMessage.textContent = 'Assurez-vous d\'inclure tous les éléments requis.';
             }
         }
 
-        function evacuer(reponse) {
-            const evacMessage = document.getElementById('evacMessage');
-            if (reponse === 'oui') {
-                evacMessage.textContent = 'Bonne décision ! Évacuez immédiatement pour rester en sécurité.';
-                document.getElementById('phase2').classList.add('hidden');
-                document.getElementById('phase3').classList.remove('hidden');
-            } else {
-                evacMessage.textContent = 'Il est dangereux de rester. Réfléchissez bien.';
-            }
-        }
+        function quiz(reponse, messageId) {
+            const quizMessage = document.getElementById(messageId);
+            quizMessage.textContent = ''; // Réinitialiser le message
 
-        function nettoyer(reponse) {
-            const cleanMessage = document.getElementById('cleanMessage');
-            if (reponse === 'avec un masque') {
-                cleanMessage.textContent = 'Excellente précaution. Il est essentiel de porter un masque pour éviter les cendres.';
-                document.getElementById('phase3').classList.add('hidden');
-                document.getElementById('phase4').classList.remove('hidden');
-            } else {
-                cleanMessage.textContent = 'Il est risqué de nettoyer sans masque. Utilisez-en un pour vous protéger.';
-            }
-        }
-
-        function quiz(reponse) {
-            let quizMessage1 = document.getElementById('quizMessage1');
-            let quizMessage2 = document.getElementById('quizMessage2');
-            let quizMessage3 = document.getElementById('quizMessage3');
-
-            if (reponse === 'Kilauea') {
-                quizMessage1.textContent = 'Correct ! Kilauea est bien le volcan le plus actif du monde.';
+            if (reponse === 'Kilauea' && messageId === 'quizMessage1') {
+                quizMessage.textContent = 'Correct ! Kilauea est bien le volcan le plus actif du monde.';
                 document.getElementById('phase4').classList.add('hidden');
                 document.getElementById('phase5').classList.remove('hidden');
-            } else if (quizMessage1.textContent === '') {
-                quizMessage1.textContent = 'Incorrect. Essayez encore.';
-            }
-
-            if (reponse === '1883') {
-                quizMessage2.textContent = 'Exact ! Le Krakatoa a connu une éruption célèbre en 1883.';
+            } else if (reponse === '1883' && messageId === 'quizMessage2') {
+                quizMessage.textContent = 'Exact ! Le Krakatoa a connu une éruption célèbre en 1883.';
                 document.getElementById('phase5').classList.add('hidden');
                 document.getElementById('phase6').classList.remove('hidden');
-            } else if (quizMessage2.textContent === '') {
-                quizMessage2.textContent = 'Mauvaise réponse. Essayez encore.';
-            }
-
-            if (reponse === 'Roche en fusion') {
-                quizMessage3.textContent = 'Bravo ! La lave est effectivement de la roche en fusion.';
+            } else if (reponse === 'Roche en fusion' && messageId === 'quizMessage3') {
+                quizMessage.textContent = 'Bravo ! La lave est effectivement de la roche en fusion.';
                 document.getElementById('phase6').classList.add('hidden');
                 document.getElementById('phase7').classList.remove('hidden');
-            } else if (quizMessage3.textContent === '') {
-                quizMessage3.textContent = 'Non, ce n’est pas la bonne réponse. Essayez encore.';
+            } else {
+                quizMessage.textContent = 'Non, ce n’est pas la bonne réponse. Essayez encore.';
             }
         }
     </script>
 </body>
 </html>
-

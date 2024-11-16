@@ -68,8 +68,8 @@
             display: inline-block;
         }
         .social-button img {
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             vertical-align: middle;
             margin-right: 8px;
         }
@@ -101,12 +101,10 @@
 <body>
     <h1>Volcans, Une affaire de prévention</h1>
 
-    <!-- Bouton de retour en haut à gauche avec logo -->
+    <!-- Bouton de retour en haut à gauche -->
     <a class="back-button" href="https://tiny.cc/SVT4F">
         <button class="social-button">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Arrow_left_font_awesome.svg" alt="Retour à l'article" style="width: 20px; height: 20px;">
-            Retour à l'article
-        </button>
+            <img src="https://img.icons8.com/?size=100&id=40217&format=png&color=000000" alt="whatsapp-logo">
     </a>
 
     <div class="container">
@@ -171,16 +169,16 @@
         </div>
     </div>
 
-    <!-- Boutons de partage avec nouveaux logos dans le coin supérieur droit -->
+    <!-- Boutons de partage avec logos dans le coin supérieur droit -->
     <div class="social-buttons">
         <a class="social-button" href="whatsapp://send?text=https://tiny.cc/SVT4F" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/WhatsApp_Logo_2023.png" alt="whatsapp-logo">
+            <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="whatsapp-logo">
         </a>
         <a class="social-button" href="sms:?&body=https://tiny.cc/SVT4F" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/SMS_Logo.svg" alt="sms-logo">‎
+            <img src="https://img.icons8.com/ios-filled/50/000000/sms.png" alt="sms-logo">‎
         </a>
         <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Mail_icon.png" alt="email-logo">
+            <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="email-logo">
         </a>
     </div>
 
@@ -205,27 +203,53 @@
         function evacuer(response) {
             const evacMessage = document.getElementById('evacMessage');
             if (response === 'oui') {
-                evacMessage.textContent = 'Vous avez décidé d\'évacuer. Soyez prudent et suivez les consignes de sécurité.';
+                evacMessage.textContent = 'Vous avez évacué en sécurité';
                 document.getElementById('phase2').classList.add('hidden');
                 document.getElementById('phase3').classList.remove('hidden');
             } else {
-                evacMessage.textContent = 'Vous avez choisi de ne pas évacuer pour l\'instant. Restez informé et soyez prêt à réagir.';
+                evacMessage.textContent = 'Non, réessaie. Vous êtes en danger, évacuez immédiatement !';
             }
         }
 
-        function nettoyer(methode) {
+        function nettoyer(response) {
             const cleanMessage = document.getElementById('cleanMessage');
-            cleanMessage.textContent = 'Vous avez choisi de nettoyer avec ' + methode + '. Bonne chance!';
-            document.getElementById('phase3').classList.add('hidden');
-            document.getElementById('phase4').classList.remove('hidden');
+            if (response === 'avec un masque') {
+                cleanMessage.textContent = 'Bonne réponse, vous êtes en sécurité';
+                document.getElementById('phase3').classList.add('hidden');
+                document.getElementById('phase4').classList.remove('hidden');
+            } else {
+                cleanMessage.textContent = 'Non, réessaie. Portez un masque pour votre sécurité.';
+            }
         }
 
-        function quiz(reponse) {
-            const quizMessage = document.getElementById('quizMessage1');
-            if (reponse === 'Kilauea') {
-                quizMessage.textContent = 'Bonne réponse ! Kilauea est l\'un des volcans les plus actifs au monde.';
-            } else {
-                quizMessage.textContent = 'Désolé, ce n\'est pas la bonne réponse. Essayez encore.';
+        function quiz(answer) {
+            if (!document.getElementById('phase4').classList.contains('hidden')) {
+                const quizMessage1 = document.getElementById('quizMessage1');
+                if (answer === 'Kilauea') {
+                    quizMessage1.textContent = 'Bonne réponse !';
+                    document.getElementById('phase4').classList.add('hidden');
+                    document.getElementById('phase5').classList.remove('hidden');
+                } else {
+                    quizMessage1.textContent = 'Non, réessaie. Le bon choix était Kilauea.';
+                }
+            } else if (!document.getElementById('phase5').classList.contains('hidden')) {
+                const quizMessage2 = document.getElementById('quizMessage2');
+                if (answer === '1883') {
+                    quizMessage2.textContent = 'Bonne réponse !';
+                    document.getElementById('phase5').classList.add('hidden');
+                    document.getElementById('phase6').classList.remove('hidden');
+                } else {
+                    quizMessage2.textContent = 'Non, réessaie. Le bon choix était 1883.';
+                }
+            } else if (!document.getElementById('phase6').classList.contains('hidden')) {
+                const quizMessage3 = document.getElementById('quizMessage3');
+                if (answer === 'Roche en fusion') {
+                    quizMessage3.textContent = 'Bonne réponse !';
+                    document.getElementById('phase6').classList.add('hidden');
+                    document.getElementById('phase7').classList.remove('hidden');
+                } else {
+                    quizMessage3.textContent = 'Non, réessaie. Le bon choix était Roche en fusion.';
+                }
             }
         }
     </script>

@@ -15,7 +15,7 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: #fff;
+            background: #ffffff; /* blanc */
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
@@ -24,20 +24,23 @@
             font-size: 2.5em;
             color: #800000; /* brun rougeâtre */
         }
+        h2 {
+            color: #4a4a4a; /* gris foncé */
+        }
         .phase {
             margin: 20px 0;
         }
         button { 
             margin: 10px; 
             padding: 10px 20px;
-            background-color: #800000; /* brun rougeâtre */
+            background-color: #4a4a4a; /* gris foncé */
             color: white; 
             border: none; 
             border-radius: 5px; 
             cursor: pointer;
         }
         button:hover {
-            background-color: #4a0000; /* Brun rougeâtre plus foncé */
+            background-color: #333333; /* noir */
         }
         .hidden { 
             display: none; 
@@ -50,9 +53,9 @@
         .social-button {
             margin: 5px;
             padding: 10px 15px;
-            background-color: #4a4a4a; /* gris foncé */
-            color: white;
-            border: none;
+            background-color: #ececec; /* beige */
+            color: #4a4a4a; /* gris foncé */
+            border: 1px solid #4a4a4a; /* gris foncé */
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
@@ -65,16 +68,16 @@
             margin-right: 8px;
         }
         .social-button:hover {
-            background-color: #333333; /* noir */
+            background-color: #dcdcdc; /* beige plus foncé */
         }
         .back-button {
             position: absolute;
             top: 10px;
             left: 10px;
             padding: 10px;
-            background-color: #4a4a4a; /* gris foncé */
-            color: white;
-            border: none;
+            background-color: #ececec; /* beige */
+            color: #4a4a4a; /* gris foncé */
+            border: 1px solid #4a4a4a; /* gris foncé */
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
@@ -85,7 +88,7 @@
             vertical-align: middle;
         }
         .back-button:hover {
-            background-color: #333333; /* noir */
+            background-color: #dcdcdc; /* beige plus foncé */
         }
     </style>
 </head>
@@ -173,15 +176,8 @@
             const hasVetements = document.getElementById('vetements').checked;
             const hasDocuments = document.getElementById('documents').checked;
 
-            if (hasEau && hasNourriture et hasMedicaments && hasVetements et hasDocuments) {
+            if (hasEau et hasNourriture et hasMedicaments et hasVetements et hasDocuments) {
                 kitMessage.textContent = 'Vous avez correctement préparé votre kit !';
                 document.getElementById('phase1').classList.add('hidden');
                 document.getElementById('phase2').classList.remove('hidden');
-            } else {
-                kitMessage.textContent = 'Non, réessaie. Assurez-vous d\'inclure tous les éléments dans votre kit d\'urgence.';
-            }
-        }
-
-        function evacuer(response) {
-            const evacMessage = document.getElementById('evacMessage');
-            if (response === 'oui')[_{{{CITATION{{{_1{](https://github.com/NicoLarson/exercice_php/tree/751d31e78d5fbfe9852f5be20c6ce41a955051d7/readme.md)
+            }[_{{{CITATION{{{_1{](https://github.com/NicoLarson/exercice_php/tree/751d31e78d5fbfe9852f5be20c6ce41a955051d7/readme.md)

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volcans - Une affaire de prévention</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
+        body {
+            font-family: Arial, sans-serif;
             background-color: #ececec; /* beige */
-            color: #333; 
-            text-align: center; 
+            color: #333;
+            text-align: center;
             padding: 20px;
         }
         .container {
@@ -30,20 +30,20 @@
         .phase {
             margin: 20px 0;
         }
-        button { 
-            margin: 10px; 
+        button {
+            margin: 10px;
             padding: 10px 20px;
             background-color: #4a4a4a; /* gris foncé */
-            color: white; 
-            border: none; 
-            border-radius: 5px; 
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
         button:hover {
             background-color: #333333; /* noir */
         }
-        .hidden { 
-            display: none; 
+        .hidden {
+            display: none;
         }
         .social-buttons {
             position: absolute;
@@ -99,11 +99,11 @@
         <div id="phase1" class="phase">
             <h2>Phase 1 : Préparation</h2>
             <p>Constituer un kit d'urgence. Quels objets voulez-vous inclure ?</p>
-            <input type="checkbox" id="eau" name="kit" value="eau"> Eau<br>
-            <input type="checkbox" id="nourriture" name="kit" value="nourriture"> Nourriture<br>
-            <input type="checkbox" id="medicaments" name="kit" value="medicaments"> Médicaments<br>
-            <input type="checkbox" id="vetements" name="kit" value="vetements"> Vêtements<br>
-            <input type="checkbox" id="documents" name="kit" value="documents"> Documents<br>
+            <input type="checkbox" id="eau" name="kit" value="eau"> Eau<br/>
+            <input type="checkbox" id="nourriture" name="kit" value="nourriture"> Nourriture<br/>
+            <input type="checkbox" id="medicaments" name="kit" value="medicaments"> Médicaments<br/>
+            <input type="checkbox" id="vetements" name="kit" value="vetements"> Vêtements<br/>
+            <input type="checkbox" id="documents" name="kit" value="documents"> Documents<br/>
             <button onclick="checkKit()">Soumettre</button>
             <p id="kitMessage"></p>
         </div>
@@ -156,7 +156,7 @@
                 <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="whatsapp-logo"> 
             </a>
             <a class="social-button" href="sms:?&body=https://tiny.cc/SVT4F" target="_blank">
-                <img src="https://img.icons8.com/ios-filled/50/000000/sms.png" alt="sms-logo">‎ 
+                <img src="https://img.icons8.com/ios-filled/50/000000/sms.png" alt="sms-logo"> 
             </a>
             <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">
                 <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="email-logo">
@@ -179,4 +179,63 @@
             if (hasEau && hasNourriture && hasMedicaments && hasVetements && hasDocuments) {
                 kitMessage.textContent = 'Vous avez correctement préparé votre kit !';
                 document.getElementById('phase1').classList.add('hidden');
-                document.getElementById('phase2').classList.remove('[_{{{CITATION{{{_1{](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md)
+                document.getElementById('phase2').classList.remove('hidden');
+            } else {
+                kitMessage.textContent = 'Assurez-vous de cocher tous les éléments du kit.';
+            }
+        }
+
+        function evacuer(reponse) {
+            const evacMessage = document.getElementById('evacMessage');
+            if (reponse === 'oui') {
+                evacMessage.textContent = 'Bonne décision ! Évacuez immédiatement pour rester en sécurité.';
+                document.getElementById('phase2').classList.add('hidden');
+                document.getElementById('phase3').classList.remove('hidden');
+            } else {
+                evacMessage.textContent = 'Il est dangereux de rester. Réfléchissez bien.';
+            }
+        }
+
+        function nettoyer(reponse) {
+            const cleanMessage = document.getElementById('cleanMessage');
+            if (reponse === 'avec un masque') {
+                cleanMessage.textContent = 'Excellente précaution. Il est essentiel de porter un masque pour éviter les cendres.';
+                document.getElementById('phase3').classList.add('hidden');
+                document.getElementById('phase4').classList.remove('hidden');
+            } else {
+                cleanMessage.textContent = 'Il est risqué de nettoyer sans masque. Utilisez-en un pour vous protéger.';
+            }
+        }
+
+        function quiz(reponse) {
+            let quizMessage1 = document.getElementById('quizMessage1');
+            let quizMessage2 = document.getElementById('quizMessage2');
+            let quizMessage3 = document.getElementById('quizMessage3');
+            
+            if (reponse === 'Kilauea') {
+                quizMessage1.textContent = 'Correct ! Kilauea est bien le volcan le plus actif du monde.';
+                document.getElementById('phase4').classList.add('hidden');
+                document.getElementById('phase5').classList.remove('hidden');
+            } else if (quizMessage1.textContent === '') {
+                quizMessage1.textContent = 'Incorrect. Essayez encore.';
+            }
+
+            if (reponse === '1883') {
+                quizMessage2.textContent = 'Exact ! Le Krakatoa a connu une éruption célèbre en 1883.';
+                document.getElementById('phase5').classList.add('hidden');
+                document.getElementById('phase6').classList.remove('hidden');
+            } else if (quizMessage2.textContent === '') {
+                quizMessage2.textContent = 'Mauvaise réponse. Essayez encore.';
+            }
+
+            if (reponse === 'Roche en fusion') {
+                quizMessage3.textContent = 'Bravo ! La lave est effectivement de la roche en fusion.';
+                document.getElementById('phase6').classList.add('hidden');
+                document.getElementById('phase7').classList.remove('hidden');
+            } else if (quizMessage3.textContent === '') {
+                quizMessage3.textContent = 'Non, ce n’est pas la bonne réponse. Essayez encore.';
+            }
+        }
+    </script>
+</body>
+</html>

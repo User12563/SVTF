@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volcans - Une affaire de prévention</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background-color: #f4f4f4; 
-            color: #333; 
-            text-align: center; 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
             padding: 20px;
+            position: relative;
         }
         .container {
             max-width: 800px;
@@ -18,7 +19,6 @@
             background: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
         }
         h1 {
             font-size: 2.5em;
@@ -27,30 +27,39 @@
         .phase {
             margin: 20px 0;
         }
-        button { 
-            margin: 10px; 
+        button {
+            margin: 10px;
             padding: 10px 20px;
-            background-color: #e63946; 
-            color: white; 
-            border: none; 
-            border-radius: 5px; 
+            background-color: #e63946;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
         button:hover {
             background-color: #d62828;
         }
-        .hidden { 
-            display: none; 
+        .hidden {
+            display: none;
         }
-        .social-buttons {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+        .link-button {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .link-button:hover {
+            background-color: #ffffff;
         }
         .social-button {
             margin: 5px;
             padding: 10px 15px;
-            background-color: #4CAF50; /* Harmonisé avec le thème */
+            background-color: #ffffff;
             color: white;
             border: none;
             border-radius: 5px;
@@ -65,32 +74,37 @@
             margin-right: 8px;
         }
         .social-button:hover {
-            background-color: #45A049; /* Couleur pour le survol */
+            background-color: #f0f0f0; /* Nouveau survol */
         }
-        .back-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 10px;
-            background-color: #4CAF50; /* Harmonisé avec le thème */
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .back-button img {
+        .link-button img {
             width: 20px;
             height: 20px;
             vertical-align: middle;
+            margin-right: 8px;
         }
-        .back-button:hover {
-            background-color: #45A049; /* Couleur pour le survol */
+
+        /* Positionnement du bouton de retour en haut à gauche */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        /* Positionnement des boutons de partage dans le coin supérieur droit */
+        .social-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
     </style>
 </head>
 <body>
     <h1>Volcans, Une affaire de prévention</h1>
+
+    <!-- Bouton de retour en haut à gauche -->
+    <a class="back-button" href="https://tiny.cc/SVT4F">
+        <button class="social-button">Retour à l'article</button>
+    </a>
 
     <div class="container">
         <div id="phase1" class="phase">
@@ -152,8 +166,10 @@
             <p>Vous avez pris les bonnes décisions et vous avez appris à vous préparer et à réagir correctement.</p>
             <p>Merci d'avoir joué. N'oubliez pas de toujours être prêt et informé.</p>
         </div>
+    </div>
 
-        <!-- Boutons de partage avec logos -->
+    <!-- Boutons de partage avec logos dans le coin supérieur droit -->
+    <div class="social-buttons">
         <a class="social-button" href="whatsapp://send?text=https://tiny.cc/SVT4F" target="_blank">
             <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="whatsapp-logo">
         </a>
@@ -162,10 +178,6 @@
         </a>
         <a class="social-button" href="mailto:?subject=Volcans%20-%20Une%20affaire%20de%20prévention&body=Découvrez%20cet%20article%20:%20https://tiny.cc/SVT4F" target="_blank">
             <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="email-logo">
-        </a>
-        <a class="social-button">
-            <button class="social-button" onclick="window.location.href='https://tiny.cc/SVT4F'">
-                <img src="https://icons8.com/icon/3483/return alt="back-logo">
         </a>
     </div>
 

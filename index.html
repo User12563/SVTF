@@ -7,7 +7,7 @@
     <style>
         body { 
             font-family: Arial, sans-serif; 
-            background-color: #f4f4f4; 
+            background-color: #ececec; /* beige */
             color: #333; 
             text-align: center; 
             padding: 20px;
@@ -22,7 +22,7 @@
         }
         h1 {
             font-size: 2.5em;
-            color: #e63946;
+            color: #800000; /* brun rougeâtre */
         }
         .phase {
             margin: 20px 0;
@@ -30,14 +30,14 @@
         button { 
             margin: 10px; 
             padding: 10px 20px;
-            background-color: #e63946; 
+            background-color: #800000; /* brun rougeâtre */
             color: white; 
             border: none; 
             border-radius: 5px; 
             cursor: pointer;
         }
         button:hover {
-            background-color: #d62828;
+            background-color: #4a0000; /* Brun rougeâtre plus foncé */
         }
         .hidden { 
             display: none; 
@@ -50,7 +50,7 @@
         .social-button {
             margin: 5px;
             padding: 10px 15px;
-            background-color: #4CAF50; /* Harmonisé avec le thème */
+            background-color: #4a4a4a; /* gris foncé */
             color: white;
             border: none;
             border-radius: 5px;
@@ -65,14 +65,14 @@
             margin-right: 8px;
         }
         .social-button:hover {
-            background-color: #45A049; /* Couleur pour le survol */
+            background-color: #333333; /* noir */
         }
         .back-button {
             position: absolute;
             top: 10px;
             left: 10px;
             padding: 10px;
-            background-color: #4CAF50; /* Harmonisé avec le thème */
+            background-color: #4a4a4a; /* gris foncé */
             color: white;
             border: none;
             border-radius: 5px;
@@ -85,7 +85,7 @@
             vertical-align: middle;
         }
         .back-button:hover {
-            background-color: #45A049; /* Couleur pour le survol */
+            background-color: #333333; /* noir */
         }
     </style>
 </head>
@@ -173,7 +173,7 @@
             const hasVetements = document.getElementById('vetements').checked;
             const hasDocuments = document.getElementById('documents').checked;
 
-            if (hasEau && hasNourriture && hasMedicaments && hasVetements && hasDocuments) {
+            if (hasEau && hasNourriture et hasMedicaments && hasVetements et hasDocuments) {
                 kitMessage.textContent = 'Vous avez correctement préparé votre kit !';
                 document.getElementById('phase1').classList.add('hidden');
                 document.getElementById('phase2').classList.remove('hidden');
@@ -183,4 +183,5 @@
         }
 
         function evacuer(response) {
-           [_{{{CITATION{{{_1{](https://github.com/NicoLarson/exercice_php/tree/751d31e78d5fbfe9852f5be20c6ce41a955051d7/readme.md)
+            const evacMessage = document.getElementById('evacMessage');
+            if (response === 'oui')[_{{{CITATION{{{_1{](https://github.com/NicoLarson/exercice_php/tree/751d31e78d5fbfe9852f5be20c6ce41a955051d7/readme.md)
